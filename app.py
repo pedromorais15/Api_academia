@@ -23,8 +23,12 @@ swagger = Swagger(app, template_file="openapi.yaml")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 
-CORS(app, resources={r"/*": {"origins": "*"}})
-
+# Substitua a linha antiga do CORS por esta:
+CORS(app, resources={r"/*": {
+    "origins": "*",
+    "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    "allow_headers": ["Content-Type", "Authorization"]
+}})
 ADM_USUARIO = os.getenv("ADM_USUARIO")
 ADM_SENHA = os.getenv("ADM_SENHA")
 
