@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: API Academia
+  version: 1.0.0
+  description: API para gerenciamento de alunos e catraca
+
+paths:
+  /:
+    get:
+      summary: Rota principal
+      responses:
+        200:
+          description: API online
+
+  /login:
+    post:
+      summary: Login do administrador
+      responses:
+        200:
+          description: Login realizado com sucesso
+
+  /alunos:
+    get:
+      summary: Lista todos os alunos
+      responses:
+        200:
+          description: Lista retornada com sucesso
+
+    post:
+      summary: Cadastra novo aluno
+      responses:
+        201:
+          description: Aluno criado com sucesso
+
+  /alunos/{id}:
+    get:
+      summary: Busca aluno por ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Aluno encontrado
+
+    put:
+      summary: Atualiza status do aluno
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Aluno atualizado
+
+    patch:
+      summary: Atualização parcial do aluno
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Aluno alterado
+
+    delete:
+      summary: Exclui aluno
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Aluno excluído
+
+  /catraca:
+    post:
+      summary: Liberação por CPF
+      responses:
+        200:
+          description: Status retornado
