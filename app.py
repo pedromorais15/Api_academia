@@ -23,7 +23,7 @@ swagger = Swagger(app, template_file="openapi.yaml")
 app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
 
 
-# Substitua a linha antiga do CORS por esta:
+# No seu app.py, garanta que o CORS cubra o header Authorization
 CORS(app, resources={r"/*": {
     "origins": "*",
     "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
